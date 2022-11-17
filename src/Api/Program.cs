@@ -1,5 +1,7 @@
 using Application;
 using Infrastructure;
+using Infrastructure.Services;
+using LogManager = NLog.LogManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
 var app = builder.Build();
+LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
+    "/nlog.config"));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

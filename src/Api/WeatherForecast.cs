@@ -1,3 +1,5 @@
+using Application.Common.Interfaces;
+
 namespace Api;
 
 public class WeatherForecast
