@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="common\Config" />
-    <Folder Include="Services" />
   </ItemGroup>
 
 </Project>
