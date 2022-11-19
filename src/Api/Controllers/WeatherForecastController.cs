@@ -12,9 +12,10 @@ public class WeatherForecastController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    private readonly ILoggerManager _logger;
+    // private readonly ILoggerManager _logger;
+    private readonly ILogger<WeatherForecast> _logger;
 
-    public WeatherForecastController(ILoggerManager logger)
+    public WeatherForecastController(ILogger<WeatherForecast> logger)
     {
         _logger = logger;
     }
@@ -22,9 +23,9 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        _logger.LogInfo("Here is info message from our values controller.");
+        _logger.LogInformation("Here is info message from our values controller.");
         _logger.LogDebug("Here is debug message from our values controller.");
-        _logger.LogWarn("Here is warn message from our values controller.");
+        _logger.LogWarning("Here is warn message from our values controller.");
         _logger.LogError("Here is an error message from our values controller.");
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {

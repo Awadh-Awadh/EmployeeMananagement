@@ -1,6 +1,7 @@
 using Application;
 using Infrastructure;
 using Infrastructure.Services;
+using Serilog;
 using LogManager = NLog.LogManager;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +15,32 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
-var app = builder.Build();
 // LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
 //     "/nlog.config"));
 
-var configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .Build();
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
+var app = builder.Build();
+
+try
+{
+    Log.Information("Starting web host");
+
+}
+catch (Exception e)
+{
+    Log.Fatal(e, "Host terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
