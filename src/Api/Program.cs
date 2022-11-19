@@ -15,8 +15,12 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
 
 var app = builder.Build();
-LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
-    "/nlog.config"));
+// LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
+//     "/nlog.config"));
+
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
