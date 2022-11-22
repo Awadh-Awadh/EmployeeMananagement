@@ -11,6 +11,6 @@ public static class DependencyInjection
     public static void AddInfrastructure(this IServiceCollection service)
     {
         service.AddTransient<IRepository , Repository>();
-        service.AddSingleton<ILoggerManager, LogManager>();
+        //service.AddSingleton<ILoggerManager, LogManager>();
     }
 }

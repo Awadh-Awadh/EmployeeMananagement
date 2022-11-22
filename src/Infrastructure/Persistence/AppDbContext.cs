@@ -1,6 +1,13 @@
-﻿namespace Infrastructure.Persistence;
+﻿using Domain.Entities.Companies;
+using Domain.Entities.Employees;
+using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext
+namespace Infrastructure.Persistence;
+
+public class AppDbContext : DbContext
 {
-    
+    public AppDbContext(DbContextOptions options) : base(options){ }
+
+    public DbSet<Employee> Employees { get; set; }
+    public DbSet<Company> Companies { get; set; }
 }
