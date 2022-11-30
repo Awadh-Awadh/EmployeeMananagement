@@ -1,8 +1,6 @@
-﻿using Domain.Entities.Companies;
+﻿namespace Application.Common.Interfaces;
 
-namespace Application.Common.Interfaces;
-
-public interface ICompanyRepository : IRepository<Company>
+public interface ICompanyRepository : IRepository<Domain.Entities.Company.Company>
 {
     
 }

@@ -1,8 +1,6 @@
-﻿using Domain.Entities.Employees;
+﻿namespace Application.Common.Interfaces;
 
-namespace Application.Common.Interfaces;
-
-public interface IEmployeeRepository : IRepository<Employee>
+public interface IEmployeeRepository : IRepository<Domain.Entities.Employee.Employee>
 {
     
 }

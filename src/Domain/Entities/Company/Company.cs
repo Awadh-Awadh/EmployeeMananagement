@@ -1,12 +1,11 @@
 ﻿using Domain.Common;
-using Domain.Entities.Employees;
 
-namespace Domain.Entities.Companies;
+namespace Domain.Entities.Company;
 
 public class Company : BaseEntity<int>
 {
     public string Name { get; set; } = string.Empty;
     public string Address { get; set; } = string.Empty;
     public string Country { get; set; } = string.Empty;
-    public ICollection<Employee> Employees { get; set; }
+    public ICollection<Employee.Employee> Employees { get; set; }
 }

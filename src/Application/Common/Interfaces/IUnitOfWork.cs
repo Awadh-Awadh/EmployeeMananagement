@@ -1,7 +1,4 @@
-﻿using Domain.Entities.Companies;
-using Domain.Entities.Employees;
-
-namespace Application.Common.Interfaces;
+﻿namespace Application.Common.Interfaces;
 
 public interface IUnitOfWork
 {
