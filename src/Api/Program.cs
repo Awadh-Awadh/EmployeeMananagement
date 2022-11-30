@@ -1,10 +1,13 @@
 using Application;
 using Infrastructure;
+using Infrastructure.Persistence;
 using Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using LogManager = NLog.LogManager;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -14,6 +17,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+});
+
+// builder.Services.AddSqlServer<AppDbContext>(builder.Configuration.GetConnectionString("Default"));
 
 // LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
 //     "/nlog.config"));
