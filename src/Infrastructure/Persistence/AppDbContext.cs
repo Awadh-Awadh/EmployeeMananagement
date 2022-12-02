@@ -1,5 +1,5 @@
-﻿using Domain.Entities.Companies;
-using Domain.Entities.Employees;
+﻿using Domain.Entities.Company;
+using Domain.Entities.Employee;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 

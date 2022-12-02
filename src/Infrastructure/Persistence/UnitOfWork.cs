@@ -1,6 +1,4 @@
 ﻿using Application.Common.Interfaces;
-using Domain.Entities.Companies;
-using Domain.Entities.Employees;
 using Infrastructure.Repositories;
 using Microsoft.Extensions.Logging;
 

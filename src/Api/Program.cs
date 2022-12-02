@@ -2,6 +2,7 @@ using Application;
 using Infrastructure;
 using Infrastructure.Persistence;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using LogManager = NLog.LogManager;

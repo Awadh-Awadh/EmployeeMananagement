@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Employees;
+﻿using Domain.Entities.Employee;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
